@@ -6,6 +6,7 @@ module.exports = {
     "text-custom-violet",
     "text-custom-pink",
     "text-custom-orange",
+    "text-custom-orange-strong",
   ],
   theme: {
     extend: {},

@@ -10,7 +10,7 @@
   --color-custom-black: #191917;
   --color-custom-blue: #00bad5;
   --color-custom-pink: #fec5fb;
-  --color-custom-orangee: #ffa07a;
+  --color-custom-orange-strong: #e7000b;
   --color-custom-green: #0ae448;
 }
 
@@ -27,4 +27,8 @@
   border-top: 1px solid #ffffe325;
   width: 100%;
   margin-right: 10px;
+}
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
 }
