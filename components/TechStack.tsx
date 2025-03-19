@@ -40,12 +40,12 @@ const TechStack = () => {
   return (
     <div className="w-full overflow-hidden bg-custom-dark py-8 text-white">
       <div className="container mx-auto px-4">
-        <h4 className="text-4xl  text-center mb-6 text-custom-violet">
+        <h4 className="text-4xl font-semibold text-center mb-6 text-custom-violet">
           My TECH STACK
         </h4>
         <p className="text-center mb-8 px-10 mx-30 text-3xl ">
-          My expertise spans a diverse range of technologies, enabling me to
-          deliver comprehensive and cutting-edge solutions across various
+          My expertise spans a diverse range of <span className="text-custom-orange-strong">technologies</span>, enabling me to
+          deliver comprehensive and <span className="text-custom-cy">cutting-edge</span> solutions across various
           platforms.
         </p>
 

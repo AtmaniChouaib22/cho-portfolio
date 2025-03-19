@@ -112,7 +112,7 @@ const MyProjects = () => {
           />
         </div>
         <div className="flex justify-center items-center ">
-          <CustomButton text="Load More" />
+          <CustomButton  href='projects' text="Load More"  />
         </div>
       </div>
     </TooltipProvider>

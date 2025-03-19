@@ -39,7 +39,7 @@ const socialLinks = [
   },
   {
     name: "Whatsapp",
-    path: "/",
+    path: "https://wa.me/213781861207",
     icon: (
       <SocialIcon
         network="whatsapp"
@@ -47,13 +47,13 @@ const socialLinks = [
           height: 35,
           width: 35,
         }}
-        url=""
+        url="https://wa.me/213781861207"
       />
     ),
   },
   {
     name: "Instagram",
-    path: "/",
+    path: "https://www.instagram.com/atm.chouaib/",
     icon: (
       <SocialIcon
         network="instagram"
@@ -84,13 +84,14 @@ const socialLinks = [
 interface FooterButtonProps {
   text: string;
   description: string;
+  link: string;
 }
 
-const FooterButton = ({ text, description }: FooterButtonProps) => {
+const FooterButton = ({ text, description, link }: FooterButtonProps) => {
   return (
     <div className="thin-bottom-border">
       <Link
-        href={""}
+        href={`/${link}`}
         className="flex items-center gap-3 hover:text-custom-blue font-medium group"
       >
         <div className="text-xl font-medium">{text}</div>
@@ -108,10 +109,10 @@ const Footer = () => {
   return (
     <>
       <footer className="relative text-custom-text thin-border rounded-lg w-full h-96 mb-2 overflow-hidden">
-        <div className="flex items-start justify-evenly pt-10">
+        <div className="flex items-start justify-evenly pt-10 relative z-10">
           <h6 className="text-2xl font-medium">
-            Where <span>aesthetics</span> &<br /> <span>functionality</span>{" "}
-            meet
+            Where <span className="text-custom-violet">aesthetics</span> &<br />{" "}
+            <span className="text-custom-blue">functionality</span> meet
           </h6>
           <div>
             <h6 className="text-xl text-custom-orange-strong font-medium mb-5">
@@ -131,11 +132,16 @@ const Footer = () => {
             </h6>
             <ul className="grid grid-cols-2 gap-x-10 gap-y-3">
               {socialLinks.map((link) => (
-                <li key={link.name} className="flex items-center gap-2 group">
+                <li
+                  key={link.name}
+                  className="flex items-center gap-2 group relative"
+                >
                   <div className="hover:cursor-pointer">{link.icon}</div>
                   <Link
-                    className="group-hover:text-custom-blue"
+                    className="group-hover:text-custom-blue relative z-20"
                     href={link.path}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     {link.name}
                   </Link>
@@ -144,20 +150,27 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <FooterButton text="Contact Me" description="Say Hello !" />
-            <FooterButton text="My Projects" description="Explore Projects" />
+            <FooterButton
+              link="about"
+              text="About Me"
+              description="See my Resume !"
+            />
+            <FooterButton
+              link="projects"
+              text="My Projects"
+              description="Explore Projects"
+            />
           </div>
         </div>
-        <div className="text-[200px] text-center absolute inset-x-0 -bottom-25 font-bold">
+        <div className="text-[200px] text-center absolute inset-x-0 -bottom-25 font-bold z-0">
           Chouaib Atmani
         </div>
       </footer>
       <div className="flex items-center justify-between text-custom-text w-full pb-3">
         <div className="ml-10">chozex ©2024 - Privacy Policy</div>
-        <div>Constantine, Algeria</div>
+        <div className="mr-10">Constantine, Algeria</div>
       </div>
     </>
   );
 };
-
 export default Footer;

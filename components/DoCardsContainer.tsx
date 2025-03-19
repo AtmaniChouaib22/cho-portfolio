@@ -1,9 +1,10 @@
 "use client";
 import { useEffect, useRef } from "react";
-import { IoBrush } from "react-icons/io5";
-import { MdDevices } from "react-icons/md";
-import { IoColorPaletteOutline } from "react-icons/io5";
-import { AiOutlineThunderbolt } from "react-icons/ai";
+import { FaReact } from "react-icons/fa";
+import { BsStack } from "react-icons/bs";
+import { TbApi } from "react-icons/tb";
+import { BsCodeSlash } from "react-icons/bs";
+import { GiThink } from "react-icons/gi";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import DoCard from "./DoCard";
@@ -56,9 +57,9 @@ const DoCardsContainer = () => {
           }}
         >
           <DoCard
-            icon={<IoBrush size={50} />}
-            title="UI & UX"
-            paragraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. At aliquam alias repellat necessitatibus!"
+            icon={<FaReact size={50} />}
+            title="Frontend Development"
+            paragraph="Building dynamic, user-friendly interfaces with a focus on performance and accessibility. Crafting seamless digital experiences that enhance user interaction."
             color="blue"
           />
         </div>
@@ -68,9 +69,9 @@ const DoCardsContainer = () => {
           }}
         >
           <DoCard
-            icon={<MdDevices size={50} />}
-            title="Web & Mobile App"
-            paragraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. At aliquam alias repellat necessitatibus!"
+            icon={<BsStack size={50} />}
+            title="Full Stack Solutions"
+            paragraph="Developing scalable, end-to-end applications that integrate intuitive frontends with robust backend logic. Ensuring seamless communication across the entire stack."
             color="violet"
           />
         </div>
@@ -80,10 +81,10 @@ const DoCardsContainer = () => {
           }}
         >
           <DoCard
-            icon={<IoColorPaletteOutline size={50} />}
-            title="Design & Creative"
-            paragraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. At aliquam alias repellat necessitatibus!"
-            color="pink"
+            icon={<GiThink size={50} />}
+            title="Problem Solving"
+            paragraph="Turning challenges into solutions with analytical thinking and structured problem-solving. Designing efficient and maintainable systems through logical reasoning."
+            color="orange"
           />
         </div>
         <div
@@ -92,9 +93,9 @@ const DoCardsContainer = () => {
           }}
         >
           <DoCard
-            icon={<AiOutlineThunderbolt size={50} />}
-            title="Development"
-            paragraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. At aliquam alias repellat necessitatibus!"
+            icon={<BsCodeSlash size={50} />}
+            title="Software Engineer"
+            paragraph="Applying software engineering principles to create scalable and maintainable applications. Continuously learning and refining best practices in development and architecture."
             color="orange-strong"
           />
         </div>

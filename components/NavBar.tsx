@@ -3,7 +3,7 @@ import Link from "next/link";
 import { SlHome } from "react-icons/sl";
 import { IoBriefcaseOutline } from "react-icons/io5";
 import { FaRegAddressCard } from "react-icons/fa6";
-import { MdEmail, MdOutlineEmail } from "react-icons/md";
+import { MdEmail } from "react-icons/md";
 import { FaCircle } from "react-icons/fa";
 
 const links = [
@@ -19,7 +19,7 @@ export default function Navbar() {
         <div>
           <FaCircle />
         </div>
-        <Link href={"/"}>Home</Link>
+        <Link href={"/"}>choZex</Link>
       </div>
       <div className="thin-border rounded-3xl">
         <ul className="flex justify-center items-center gap-4 px-3 py-2">
@@ -34,12 +34,15 @@ export default function Navbar() {
           ))}
         </ul>
       </div>
-      <div className="flex rounded-3xl thin-border px-3 py-2 mr-6 justify-center items-center gap-1 hover:cursor-pointer">
+      <Link
+        href={"/contact"}
+        className="flex rounded-3xl thin-border px-3 py-2 mr-6 justify-center items-center gap-1 hover:cursor-pointer"
+      >
         <div>
           <MdEmail />
         </div>
         Contact Me
-      </div>
+      </Link>
     </nav>
   );
 }

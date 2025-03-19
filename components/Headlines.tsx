@@ -1,20 +1,17 @@
-import { FaArrowRightLong } from "react-icons/fa6";
 import { AiOutlineThunderbolt } from "react-icons/ai";
 import CustomButton from "./CustomButton";
-import FooterIntro from "./FooterIntro";
 
 const Headlines = () => {
   return (
     <div className="text-custom-text px-10">
       <div className="flex items-center justify-between">
         <div className="text-3xl pr-56 py-8">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum minus
-          consectetur exercitationem,
-          <br /> nesciunt at dolores! Velit eveniet atque deleniti dignissimos!
+          Passionate about crafting seamless web experiences
+          <br /> with a focus on usability, performance, and clean architecture.
         </div>
         <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          <br /> Nihil consequatur provident ab similique.
+          Transforming ideas into scalable digital solutions.
+          <br /> Engineering with precision, problem-solving with creativity.
         </div>
       </div>
 
@@ -31,13 +28,12 @@ const Headlines = () => {
       </div>
 
       <div className="text-2xl py-5">
-        Lorem ipsum dolor sit amet consectetur
-        <br /> adipisicing elit. Vborder elit quibusdam voluptatibus nihil amet
-        quo enim.
+        From concept to deployment, I bring ideas to life
+        <br /> with a focus on efficiency, accessibility, and innovation.
       </div>
 
       <div className="flex justify-end items-center">
-        <CustomButton text="Learn More" />
+        <CustomButton href="/projects" text="View Projects" />
       </div>
     </div>
   );

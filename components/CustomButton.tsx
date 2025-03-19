@@ -2,14 +2,14 @@
 import Link from "next/link";
 import { useRef } from "react";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 interface CustomButtonProps {
   text: string;
+  href: string;
 }
 
-const CustomButton = ({ text }: CustomButtonProps) => {
+const CustomButton = ({ text, href }: CustomButtonProps) => {
   const link = useRef<HTMLAnchorElement>(null);
   const fillDiv = useRef<HTMLDivElement>(null);
 
@@ -45,7 +45,7 @@ const CustomButton = ({ text }: CustomButtonProps) => {
   return (
     <Link
       ref={link}
-      href={""}
+      href={`/${href}`}
       className="relative flex justify-center items-center text-white text-xl py-4 px-5 overflow-hidden thin-border rounded-full"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

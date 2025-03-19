@@ -4,10 +4,11 @@ import gsap from "gsap";
 import { useRef, useEffect } from "react";
 
 import { MdOutlineEmail } from "react-icons/md";
-import { FaLinkedinIn } from "react-icons/fa6";
-import { FaMediumM } from "react-icons/fa";
+import { FaLinkedinIn, FaYoutube } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
+
+const socialLinks = [{}];
 
 const FooterIntro = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -105,8 +106,9 @@ const FooterIntro = () => {
           ref={icon1}
         >
           <Link
-            href=""
+            href="https://www.linkedin.com/in/chouaib-atmani-a52b12263/"
             className="flex justify-center items-center rounded-full "
+            target="_blank"
           >
             <FaLinkedinIn size={30} className="text-black" />
           </Link>
@@ -117,7 +119,8 @@ const FooterIntro = () => {
           className="flex justify-center items-center rounded-full bg-custom-text"
         >
           <Link
-            href=""
+            target="_blank"
+            href="https://wa.me/213781861207"
             className="flex justify-center items-center  w-10 h-10 rounded-full "
           >
             <FaWhatsapp size={35} className="text-black" />
@@ -129,10 +132,11 @@ const FooterIntro = () => {
           className="flex justify-center items-center w-10 h-10  rounded-full bg-custom-text"
         >
           <Link
-            href=""
+            target="_blank"
+            href="www.youtube.com/@AtmaniChouaib"
             className="flex justify-center items-center rounded-full "
           >
-            <FaMediumM size={35} className="text-black" />
+            <FaYoutube size={35} className="text-black" />
           </Link>
         </div>
 
@@ -141,7 +145,8 @@ const FooterIntro = () => {
           className="flex justify-center items-center  w-10 h-10   rounded-full bg-custom-text"
         >
           <Link
-            href=""
+            href="https://github.com/AtmaniChouaib22"
+            target="_blank"
             className="flex justify-center items-center w-10 h-10  rounded-full "
           >
             <FaGithub size={35} className="text-black" />
