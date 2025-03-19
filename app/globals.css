@@ -1,5 +1,23 @@
 @import "tailwindcss";
 
+/* lenis custom css */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
 @theme {
   --color-custom-cy: #17f1d1;
   --color-custom-dark: #0e100f;
@@ -10,7 +28,7 @@
   --color-custom-black: #191917;
   --color-custom-blue: #00bad5;
   --color-custom-pink: #fec5fb;
-  --color-custom-orange-strong: #e7000b;
+  --color-custom-orange-strong: #EC003F;
   --color-custom-green: #0ae448;
 }
 

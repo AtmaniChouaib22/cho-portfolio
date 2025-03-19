@@ -1,6 +1,7 @@
 "use client";
 import "./globals.css";
 import { Inter } from "@next/font/google";
+import { ReactLenis } from "@/utils/lenis";
 import NavBar from "@/components/NavBar";
 
 import { useEffect, useState, useRef } from "react";
@@ -93,19 +94,21 @@ export default function RootLayout({
   }, [firstLoad]);
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-custom-dark`}>
-        <div
-          ref={greetingRef}
-          className="absolute z-50 min-h-screen inset-0 flex items-center justify-center bg-custom-dark text-custom-text text-5xl font-bold"
-        >
-          {greetings[index]}
-        </div>
-        <NavBar />
-        <main className="relative flex flex-col min-h-screen items-center justify-between bg-custom-dark overflow-hidden">
-          {children}
-          <Footer />
-        </main>
-      </body>
+      <ReactLenis root>
+        <body className={`${inter.className} bg-custom-dark`}>
+          <div
+            ref={greetingRef}
+            className="absolute z-50 min-h-screen inset-0 flex items-center justify-center bg-custom-dark text-custom-text text-5xl font-bold"
+          >
+            {greetings[index]}
+          </div>
+          <NavBar />
+          <main className="relative flex flex-col min-h-screen items-center justify-between bg-custom-dark overflow-hidden">
+            {children}
+            <Footer />
+          </main>
+        </body>
+      </ReactLenis>
     </html>
   );
 }
