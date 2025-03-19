@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Cursor from "@/components/Cursor";
+import CustomConnectButton from "./CustomConnectButton";
 
 const Intro = () => {
   return (
@@ -12,46 +14,67 @@ const Intro = () => {
             height={100}
           />
         </div>
-        <div className="rounded-3xl border-[1px] border-custom-border px-3 py-2 ml-6">
-          Hello, I'm Chouaib
+        <div
+          id="f-parent"
+          className="rounded-3xl border-[1px] border-custom-border px-3 py-2 ml-6"
+        >
+          <Cursor
+            parentSelector="#f-parent"
+            tooltipText="ChoZex"
+            cursorColor="#EC003F"
+            bgColor="rgba(236, 0, 63, 0.9)"
+          />
+          Hey, I'm Chouaib
         </div>
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center" id="ok">
         <div className="md:text-6xl lg:text-8xl font-semibold text-custom-violet">
-          DIGITAL
+          FULL STACK
         </div>
         <div className="text-custom-text pl-5">
-          //based in <br />
-          Constantine,Algeria
+          //Developer <br />
+          Based in Constantine, Algeria
         </div>
       </div>
       <div className="md:text-6xl lg:text-8xl font-semibold text-custom-orange">
-        EXPERIENCE
+        WEB DEVELOPER
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center" id="letconnect">
         <div className="md:text-6xl lg:text-8xl font-semibold text-custom-text">
-          DESIGNER
+          & SOFTWARE
         </div>
-        <div className="rounded-3xl border-[1px] border-custom-border px-3 py-2 ml-1 text-custom-text">
-          let's connect
+        <div id="s-parent">
+          <CustomConnectButton text={"let's connect"} />
+          <Cursor
+            parentSelector="#s-parent"
+            tooltipText="Chat with me"
+            cursorColor="#00BCFF"
+            bgColor="rgba(0, 188, 255, 0.9)"
+          />
         </div>
       </div>
       <div className="flex items-center">
-        <div className="text-custom-text mr-2">
-          //UI/UX Designer <br />
-          Full-stack Developer
+        <div id="t-parent" className="text-custom-text mr-2">
+          <Cursor
+            parentSelector="#t-parent"
+            tooltipText="Skills"
+            cursorColor="#8012e0cc"
+            bgColor="rgba(128, 18, 224, 0.80)"
+          />
+          // Strong problem-solving & communication <br />
+          building user-centric solutions
         </div>
         <div className="md:text-6xl lg:text-8xl font-semibold text-custom-cy">
-          & DEVELOPER
+          ENGINEER
         </div>
       </div>
       <div className="text-custom-text font-medium text-center text-md sm:text-2xl tracking-wide">
-        I create a digital experience that borders
+        Crafting digital solutions that seamlessly blend
         <br />{" "}
         <span className="text-xl">
-          on <span className="text-custom-violet">efficiency</span>,{" "}
-          <span className="text-custom-orange">aesthetics</span> and
-          <span className="text-custom-cy"> functionality</span>
+          <span className="text-custom-violet">innovation</span>,{" "}
+          <span className="text-custom-orange">performance</span>, and
+          <span className="text-custom-cy"> clean code</span>.
         </span>
       </div>
     </div>
