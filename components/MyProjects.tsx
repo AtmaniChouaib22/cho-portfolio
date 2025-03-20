@@ -1,44 +1,91 @@
 "use client";
 import { PiBriefcaseLight } from "react-icons/pi";
-import MyProjectsBox from "./MyProjectsBox";
-import CustomButton from "./CustomButton";
-import { useRef } from "react";
+import MyProjectsBox from "@/components/MyProjectsBox";
+import CustomButton from "@/components/CustomButton";
+import { useRef, useEffect } from "react";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { TooltipProvider } from "./tooltip";
+import { TooltipProvider } from "@/components/tooltip";
+import { link } from "fs";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const MyProjects = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
+  const containerRef = useRef<HTMLDivElement>(null);
+  // Store our ScrollTrigger instances
+  const myScrollTriggers = useRef<ScrollTrigger[]>([]);
 
-  useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top 80%",
-        end: "bottom top",
-        scrub: true,
-      },
+  useEffect(() => {
+    // Clear ONLY our own ScrollTriggers, not all of them
+    myScrollTriggers.current.forEach((trigger) => trigger.kill());
+    myScrollTriggers.current = [];
+
+    if (cardsRef.current.length === 0) {
+      console.log("No card refs found");
+      return;
+    }
+
+    // Create animations for each card
+    cardsRef.current.forEach((card, index) => {
+      if (!card) return;
+
+      const direction = index % 2 === 0 ? -200 : 200;
+
+      const tl = gsap.timeline({
+        paused: true,
+      });
+
+      // Add the animation to the timeline
+      tl.fromTo(
+        card,
+        {
+          x: direction,
+          opacity: 0,
+          scale: 0.9,
+        },
+        {
+          x: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1.5,
+          ease: "power2.out",
+        }
+      );
+
+      // Create unique ID for this ScrollTrigger
+      const triggerId = `project-card-${index}`;
+
+      // Create ScrollTrigger for each card
+      ScrollTrigger.create({
+        id: triggerId,
+        trigger: card,
+        start: "top bottom-=100",
+        end: "bottom top+=100",
+        onEnter: () => tl.restart(),
+        onEnterBack: () => tl.restart(),
+        // markers: true, // debugging
+      });
+
+      // Store this ScrollTrigger
+      const trigger = ScrollTrigger.getById(triggerId);
+      if (trigger) myScrollTriggers.current.push(trigger);
+
+      // Check if card is already in view
+      const rect = card.getBoundingClientRect();
+      const isInView = rect.top < window.innerHeight;
+
+      if (isInView) {
+        tl.play(); // Play immediately if in view
+      }
     });
 
-    tl.from(cardsRef.current, {
-      opacity: 0,
-      y: 100,
-      stagger: 0.5,
-      duration: 1.5,
-      ease: "power3.out",
-    });
-
-    tl.to(cardsRef.current, {
-      opacity: 0,
-      y: -100,
-      stagger: -0.5,
-      duration: 1.5,
-      ease: "power3.in",
-    });
+    // Cleanup only our own ScrollTriggers
+    return () => {
+      myScrollTriggers.current.forEach((trigger) => {
+        if (trigger) trigger.kill();
+      });
+    };
   }, []);
 
   return (
@@ -63,7 +110,7 @@ const MyProjects = () => {
             link="/"
             title="Formy-AI"
             year={2024}
-            role="UI/UX Design & Development"
+            role="Full-stack web development"
             description="Next.js, PostgeSQL, Clerk, Gemini API..."
             tooltipContent="this is a long tooltip that works on mouse hovering ahahahhahaha"
             tooltipColor="#4F39F6"
@@ -112,7 +159,7 @@ const MyProjects = () => {
           />
         </div>
         <div className="flex justify-center items-center ">
-          <CustomButton  href='projects' text="Load More"  />
+          <CustomButton href="projects" text="Load More" />
         </div>
       </div>
     </TooltipProvider>
@@ -120,3 +167,5 @@ const MyProjects = () => {
 };
 
 export default MyProjects;
+
+

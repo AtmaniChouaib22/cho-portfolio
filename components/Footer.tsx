@@ -92,7 +92,7 @@ const FooterButton = ({ text, description, link }: FooterButtonProps) => {
     <div className="thin-bottom-border">
       <Link
         href={`/${link}`}
-        className="flex items-center gap-3 hover:text-custom-blue font-medium group"
+        className="flex items-center justify-between gap-3 hover:text-custom-blue font-medium group"
       >
         <div className="text-xl font-medium">{text}</div>
         <FaArrowRight

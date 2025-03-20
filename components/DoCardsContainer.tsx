@@ -2,7 +2,6 @@
 import { useEffect, useRef } from "react";
 import { FaReact } from "react-icons/fa";
 import { BsStack } from "react-icons/bs";
-import { TbApi } from "react-icons/tb";
 import { BsCodeSlash } from "react-icons/bs";
 import { GiThink } from "react-icons/gi";
 import { gsap } from "gsap";
@@ -14,32 +13,79 @@ gsap.registerPlugin(ScrollTrigger);
 const DoCardsContainer = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
+  // Store our ScrollTrigger instances
+  const myScrollTriggers = useRef<ScrollTrigger[]>([]);
 
   useEffect(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top 80%",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
+    // Wait a small amount of time to ensure DOM elements are properly mounted
+    const timer = setTimeout(() => {
+      // Clear ONLY our own ScrollTriggers, not all of them
+      myScrollTriggers.current.forEach((trigger) => trigger.kill());
+      myScrollTriggers.current = [];
 
-    tl.from(cardsRef.current, {
-      opacity: 0,
-      y: 60,
-      stagger: 0.5,
-      duration: 0.8,
-      ease: "power2.out",
-    });
+      // Make sure we have refs before continuing
+      if (
+        !containerRef.current ||
+        cardsRef.current.filter(Boolean).length === 0
+      ) {
+        console.log("Container or card refs not ready yet");
+        return;
+      }
 
-    tl.to(cardsRef.current, {
-      opacity: 0,
-      y: -60,
-      stagger: -0.5,
-      duration: 0.8,
-      ease: "power2.in",
-    });
+      // Tell GSAP to refresh ScrollTrigger
+      ScrollTrigger.refresh();
+
+      // Fade IN timeline
+      const inTimeline = gsap.timeline({
+        scrollTrigger: {
+          id: "doCards-fadeIn",
+          trigger: containerRef.current,
+          start: "top 80%",
+          end: "center center",
+          scrub: 1,
+        },
+      });
+
+      inTimeline.from(cardsRef.current, {
+        opacity: 0,
+        y: 200,
+        stagger: 0.5,
+        duration: 2,
+        ease: "power2.out",
+      });
+
+      // Store this ScrollTrigger
+      myScrollTriggers.current.push(ScrollTrigger.getById("doCards-fadeIn")!);
+
+      // Fade OUT timeline
+      const outTimeline = gsap.timeline({
+        scrollTrigger: {
+          id: "doCards-fadeOut",
+          trigger: containerRef.current,
+          start: "bottom 60%",
+          end: "bottom top",
+          scrub: 1,
+        },
+      });
+
+      outTimeline.to(cardsRef.current, {
+        opacity: 0,
+        y: -200,
+        stagger: 0.5,
+        duration: 2,
+        ease: "power2.in",
+      });
+
+      // Store this ScrollTrigger too
+      myScrollTriggers.current.push(ScrollTrigger.getById("doCards-fadeOut")!);
+    }, 100); // Small delay to ensure DOM is ready
+
+    return () => {
+      clearTimeout(timer);
+      myScrollTriggers.current.forEach((trigger) => {
+        if (trigger) trigger.kill();
+      });
+    };
   }, []);
 
   return (

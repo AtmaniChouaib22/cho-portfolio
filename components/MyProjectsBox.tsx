@@ -20,7 +20,7 @@ const MyProjectsBox = forwardRef<HTMLDivElement, MyProjectsBoxProps>(
     ref
   ) => {
     const boxRef = useRef<HTMLAnchorElement>(null);
-    const { setTooltip, updatePosition } = useTooltip(); 
+    const { setTooltip, updatePosition } = useTooltip();
 
     useEffect(() => {
       const boxElement = boxRef.current;
