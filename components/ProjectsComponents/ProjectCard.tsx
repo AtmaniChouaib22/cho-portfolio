@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+
 interface ProjectCardProps {
   title: string;
   image: string;
@@ -21,13 +22,11 @@ const ProjectCard = ({
 }: ProjectCardProps) => {
   return (
     <div
-      className={`w-full flex  p-5 ${
-        isReversed ? "flex-row-reverse" : "flex-row"
-      } items-start gap-5 text-custom-text thin-border rounded-lg mb-8`}
+      className={`w-full flex flex-col md:flex-row ${
+        isReversed ? "md:flex-row-reverse" : ""
+      } p-5 items-start gap-5 text-custom-text thin-border rounded-lg mb-8`}
     >
-      {/* Image section - 50% width with max-width constraint */}
-
-      <div className="w-1/2 h-[400px] flex items-center justify-center bg-blue-950">
+      <div className="w-full md:w-1/2 h-[250px] md:h-[400px] flex items-center justify-center bg-blue-950">
         <div className="w-full h-full overflow-hidden">
           <Image
             src={image}
@@ -39,21 +38,20 @@ const ProjectCard = ({
         </div>
       </div>
 
-      {/* Content section - 50% width */}
-      <div className="w-1/2 flex flex-col h-full">
+      <div className="w-full md:w-1/2 flex flex-col h-full">
         <div
-          className={`flex ${
-            isReversed ? "flex-row-reverse" : "flex-row"
+          className={`flex flex-col ${
+            isReversed ? "md:flex-row-reverse" : "md:flex-row"
           } justify-between items-center thin-bottom-border pb-3 px-4`}
         >
           <div className={isReversed ? "text-right" : "text-left"}>
-            <h3 className="text-4xl">{title}</h3>
-            <p className="font-light text-s">{stack}</p>
+            <h3 className="text-2xl md:text-4xl">{title}</h3>
+            <p className="font-light text-sm md:text-base">{stack}</p>
           </div>
           <div className={isReversed ? "ml-5" : "mr-5"}>{year}</div>
         </div>
-        <div className="flex flex-col h-full pt-5 ">
-          <ul className="list-disc list-inside">
+        <div className="flex flex-col h-full pt-5">
+          <ul className="list-disc list-inside text-sm md:text-base">
             {list.map((item, index) => (
               <li key={`${index}-${item.substring(0, 10)}`}>{item}</li>
             ))}

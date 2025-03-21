@@ -20,7 +20,7 @@ const projectsInfo = [
       "Deal confirmation/rejection system",
       "Responsive design for all devices",
     ],
-    link: "https://github.com/AtmaniChouaib22/mood",
+    link: "https://github.com/AtmaniChouaib22/zex-cars",
     stack:
       "ExpressJs, React.js, MongoDb, Node.js, shadcnUi, passportJs, express-session, TailwindCSS",
     image: "/zex-cars.png",

@@ -37,7 +37,7 @@ const Headlines = () => {
       </div>
 
       <div className="flex justify-end items-center mt-10">
-        <CustomButton href="/projects" text="View Projects" />
+        <CustomButton href="projects" text="View Projects" />
       </div>
     </div>
   );

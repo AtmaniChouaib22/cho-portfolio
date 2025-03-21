@@ -99,19 +99,19 @@ const MyProjects = () => {
             <PiBriefcaseLight size={40} className="text-black" />
           </div>
         </div>
-        <div ref={containerRef} className="mb-10 flex flex-col gap-10">
+        <div ref={containerRef} className="mb-10 flex flex-col gap-10 md:mx-20">
           <MyProjectsBox
             ref={(el) => {
               if (el) {
                 cardsRef.current[0] = el;
               }
             }}
-            link="/"
-            title="Formy-AI"
-            year={2024}
+            link="https://github.com/AtmaniChouaib22/AI-Agent"
+            title="AI-Agent"
+            year={2025}
             role="Full-stack web development"
-            description="Next.js, PostgeSQL, Clerk, Gemini API..."
-            tooltipContent="this is a long tooltip that works on mouse hovering ahahahhahaha"
+            description="TypeScript, Next.js, Zod , OpenAi APi, Prisma, TailwindCSS"
+            tooltipContent="AI cli agent that can get dad jokes, joke image generation and get reddit posts."
             tooltipColor="#4F39F6"
           />
           <MyProjectsBox
@@ -120,12 +120,12 @@ const MyProjects = () => {
                 cardsRef.current[1] = el;
               }
             }}
-            link="/"
-            title="Formy-AI"
-            year={2024}
-            role="UI/UX Design & Development"
-            description="Next.js, PostgeSQL, Clerk, Gemini API..."
-            tooltipContent="this is a long tooltip that works on mouse hovering ahahahhahaha"
+            link="https://github.com/AtmaniChouaib22/mood"
+            title="Mood"
+            year={2025}
+            role="Full stack web dev Development"
+            description="TypeScript, Next.js, OpenAI APi, Zod, Clerk, PostgreSQL, Prisma, TailwindCSS"
+            tooltipContent="A modern, AI-powered journaling application that provides insights into your mental wellbeing."
             tooltipColor="#FB2C36"
           />
           <MyProjectsBox
@@ -134,12 +134,12 @@ const MyProjects = () => {
                 cardsRef.current[2] = el;
               }
             }}
-            link="/"
-            title="Formy-AI"
+            link="https://github.com/AtmaniChouaib22/zex-cars"
+            title="Zex Cars"
             year={2024}
-            role="UI/UX Design & Development"
-            description="Next.js, PostgeSQL, Clerk, Gemini API..."
-            tooltipContent="this is a long tooltip that works on mouse hovering ahahahhahaha"
+            role="Full Stack Web Development"
+            description="ExpressJs, React.js, MongoDb, Node.js, shadcnUi, passportJs, express-session, TailwindCSS"
+            tooltipContent="A modern website for car buying and selling, with user and admin interfaces."
             tooltipColor="#155DFC"
           />
           <MyProjectsBox
@@ -148,12 +148,26 @@ const MyProjects = () => {
                 cardsRef.current[3] = el;
               }
             }}
-            link=""
-            title="Formy-AI"
-            year={2024}
-            role="UI/UX Design & Development"
-            description="Next.js, PostgeSQL, Clerk, Gemini API..."
-            tooltipContent="this is a long tooltip that works on mouse hovering ahahahhahaha"
+            link="https://github.com/AtmaniChouaib22/CLI-Note-app"
+            title="CLI Note App"
+            year={2025}
+            role="Mobile App Development"
+            description="Node.js , Yargs, JavaScript"
+            tooltipContent="A CLI-based note-taking application that allows you to manage notes in the CLI."
+            tooltipColor="#FFD230"
+          />
+          <MyProjectsBox
+            ref={(el) => {
+              if (el) {
+                cardsRef.current[4] = el;
+              }
+            }}
+            link="https://github.com/AtmaniChouaib22/movies-app"
+            title="Mobile Movies App"
+            year={2025}
+            role="Mobile App Development"
+            description="React-native, expo, expo-router, appwrite, nativewind"
+            tooltipContent="A mobile application that allows you to search for movies and view details about them."
             tooltipColor="#FFD230"
           />
         </div>

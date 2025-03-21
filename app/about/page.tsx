@@ -69,14 +69,18 @@ const skillsInfo = [
   },
   {
     title: "Frontend",
-    skills: ["React", "Next.js", "TailwindCSS", "ShadcnUI", "GSAP"],
+    skills: [
+      "React",
+      "Next.js",
+      "TailwindCSS",
+      "ShadcnUI",
+      "GSAP",
+      "Bootstrap",
+      "motion",
+    ],
     color: "red",
   },
-  {
-    title: "Backend",
-    skills: ["Node.js", "Express"],
-    color: "green",
-  },
+  { title: "Backend", skills: ["Node.js", "Express"], color: "green" },
   {
     title: "Databases",
     skills: ["MongoDB", "MySQL", "PostgreSQL"],
@@ -84,12 +88,20 @@ const skillsInfo = [
   },
   {
     title: "Tools",
-    skills: ["Git", "VS Code", "Postman", "vite", "webpack", "Figma"],
+    skills: ["Git", "VS Code", "Postman", "vite", "webpack", "Figma", "jest"],
     color: "violet",
   },
   {
     title: "Others",
-    skills: ["RESTful APIs", "appwrite", "Firebase"],
+    skills: [
+      "RESTful APIs",
+      "websockets",
+      "appwrite",
+      "Firebase",
+      "Vscode",
+      "Netlify",
+      "Vercel",
+    ],
     color: "gray",
   },
 ];

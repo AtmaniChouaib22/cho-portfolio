@@ -73,7 +73,9 @@ const MyProjectsBox = forwardRef<HTMLDivElement, MyProjectsBoxProps>(
           </div>
           <div className="mt-2 md:mt-0 md:max-w-[60%]">
             <div className="text-base sm:text-lg">{role}</div>
-            <div className="text-xs sm:text-sm font-light">{description}</div>
+            <div className="text-xs sm:text-sm font-light text-wrap w-52">
+              {description}
+            </div>
           </div>
         </Link>
       </div>

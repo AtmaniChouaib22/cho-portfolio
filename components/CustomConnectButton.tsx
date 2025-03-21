@@ -74,7 +74,7 @@ const CustomButton = ({ text }: CustomButtonProps) => {
   return (
     <Link
       ref={link}
-      href={""}
+      href={"/about"}
       className="relative flex justify-center items-center text-white text-md md:text-xl  py-0.5 px-0.5 md:py-2 md:px-3 overflow-hidden thin-border rounded-full"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
