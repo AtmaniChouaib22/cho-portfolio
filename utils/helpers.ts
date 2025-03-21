@@ -1,4 +1,4 @@
-const getColorClasses = (color) => {
+const getColorClasses = (color: string) => {
   const colorMap = {
     blue: {
       bg: "bg-blue-500/20",
@@ -26,7 +26,7 @@ const getColorClasses = (color) => {
     },
   };
 
-  return colorMap[color] || { bg: "bg-gray-500/50", text: "text-gray-500" };
+  return colorMap[color as keyof typeof colorMap] || { bg: "bg-gray-500/50", text: "text-gray-500" };
 };
 
 export { getColorClasses };
