@@ -65,15 +65,15 @@ const MyProjectsBox = forwardRef<HTMLDivElement, MyProjectsBoxProps>(
         <Link
           href={link}
           ref={boxRef}
-          className="flex items-center justify-between px-40 py-14 text-custom-text hover:text-custom-blue thin-bottom-border transition-colors duration-300"
+          className="flex flex-col md:flex-row items-start md:items-center justify-between px-4 sm:px-6 md:px-10 lg:px-40 py-6 md:py-10 lg:py-14 text-custom-text hover:text-custom-blue thin-bottom-border transition-colors duration-300"
         >
-          <div>
-            <div className="text-4xl">{title}</div>
-            <div>{year}</div>
+          <div className="mb-2 md:mb-0">
+            <div className="text-2xl sm:text-3xl lg:text-4xl">{title}</div>
+            <div className="text-sm sm:text-base">{year}</div>
           </div>
-          <div>
-            <div className="text-lg">{role}</div>
-            <div className="text-sm font-light">{description}</div>
+          <div className="mt-2 md:mt-0 md:max-w-[60%]">
+            <div className="text-base sm:text-lg">{role}</div>
+            <div className="text-xs sm:text-sm font-light">{description}</div>
           </div>
         </Link>
       </div>

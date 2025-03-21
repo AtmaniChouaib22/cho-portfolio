@@ -46,7 +46,7 @@ const CustomButton = ({ text, href }: CustomButtonProps) => {
     <Link
       ref={link}
       href={`/${href}`}
-      className="relative flex justify-center items-center text-white text-xl py-4 px-5 overflow-hidden thin-border rounded-full"
+      className="relative flex justify-center items-center text-white py-2 px-3 md:text-xl md:py-4 md:px-5 overflow-hidden thin-border rounded-full"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -56,10 +56,12 @@ const CustomButton = ({ text, href }: CustomButtonProps) => {
         className="absolute bottom-0 left-0 w-full h-0 bg-custom-orange-strong z-0 transition-all duration-500"
       ></div>
       {/* Button content */}
-      <span className="relative z-10 px-2 py-1 text-2xl">{text}</span>
+      <span className="relative z-10 px-2 py-1 text-lg md:text-2xl">
+        {text}
+      </span>
       <FaArrowRightLong
         size={35}
-        className="relative z-10 inline ml-1 text-white"
+        className="relative z-10 inline ml-1 text-white md:w-10 md:h-10"
       />
     </Link>
   );

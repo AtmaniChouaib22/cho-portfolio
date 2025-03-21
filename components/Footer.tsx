@@ -12,73 +12,20 @@ const socialLinks = [
   {
     name: "LinkedIn",
     path: "https://www.linkedin.com/in/chouaib-atmani-a52b12263/",
-    icon: (
-      <SocialIcon
-        network="linkedin"
-        style={{
-          height: 40,
-          width: 40,
-        }}
-        url="https://www.linkedin.com/in/chouaib-atmani-a52b12263/"
-      />
-    ),
+    network: "linkedin",
   },
   {
     name: "Github",
     path: "https://github.com/AtmaniChouaib22",
-    icon: (
-      <SocialIcon
-        network="github"
-        style={{
-          height: 35,
-          width: 35,
-        }}
-        url="https://github.com/AtmaniChouaib22"
-      />
-    ),
+    network: "github",
   },
-  {
-    name: "Whatsapp",
-    path: "https://wa.me/213781861207",
-    icon: (
-      <SocialIcon
-        network="whatsapp"
-        style={{
-          height: 35,
-          width: 35,
-        }}
-        url="https://wa.me/213781861207"
-      />
-    ),
-  },
+  { name: "Whatsapp", path: "https://wa.me/213781861207", network: "whatsapp" },
   {
     name: "Instagram",
     path: "https://www.instagram.com/atm.chouaib/",
-    icon: (
-      <SocialIcon
-        network="instagram"
-        style={{
-          height: 35,
-          width: 35,
-        }}
-        url="https://www.instagram.com/atm.chouaib/"
-      />
-    ),
+    network: "instagram",
   },
-  {
-    name: "Dev",
-    path: "https://dev.to/chouaib_atmani",
-    icon: (
-      <SocialIcon
-        network="dev.to"
-        style={{
-          height: 35,
-          width: 35,
-        }}
-        url="https://dev.to/chouaib_atmani"
-      />
-    ),
-  },
+  { name: "Dev", path: "https://dev.to/chouaib_atmani", network: "dev.to" },
 ];
 
 interface FooterButtonProps {
@@ -87,61 +34,47 @@ interface FooterButtonProps {
   link: string;
 }
 
-const FooterButton = ({ text, description, link }: FooterButtonProps) => {
-  return (
-    <div className="thin-bottom-border">
-      <Link
-        href={`/${link}`}
-        className="flex items-center justify-between gap-3 hover:text-custom-blue font-medium group"
-      >
-        <div className="text-xl font-medium">{text}</div>
-        <FaArrowRight
-          className="thin-border rounded-full p-2 text-custom-green transition-transform duration-250 group-hover:-rotate-45"
-          size={40}
-        />
-      </Link>
-      <div className="text-[13px] pb-2">{description}</div>
-    </div>
-  );
-};
+const FooterButton = ({ text, description, link }: FooterButtonProps) => (
+  <div className="thin-bottom-border pb-3 w-40 flex flex-col justify-between">
+    <Link
+      href={`/${link}`}
+      className="flex items-center justify-between w-full text-lg font-medium group hover:text-custom-blue"
+    >
+      <span>{text}</span>
+      <FaArrowRight
+        className="thin-border rounded-full p-2 text-custom-green transition-transform duration-200 group-hover:-rotate-45 ml-4"
+        size={35}
+      />
+    </Link>
+    <p className="text-sm text-gray-400">{description}</p>
+  </div>
+);
 
 const Footer = () => {
   return (
     <>
-      <footer className="relative text-custom-text thin-border rounded-lg w-full h-96 mb-2 overflow-hidden">
-        <div className="flex items-start justify-evenly pt-10 relative z-10">
-          <h6 className="text-2xl font-medium">
-            Where <span className="text-custom-violet">aesthetics</span> &<br />{" "}
-            <span className="text-custom-blue">functionality</span> meet
-          </h6>
-          <div>
-            <h6 className="text-xl text-custom-orange-strong font-medium mb-5">
+      <footer className="flex flex-col text-custom-text thin-border rounded-lg w-full py-10 px-5 md:px-10 lg:px-20 relative overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
+          {/* Branding */}
+          <div className="text-center md:text-left">
+            <h6 className="text-2xl font-semibold">
+              Where <span className="text-custom-violet">aesthetics</span> &
+              <br />
+              <span className="text-custom-blue">functionality</span> meet
+            </h6>
+          </div>
+
+          {/* Page Links */}
+          <div className="text-center md:text-left">
+            <h6 className="text-xl font-semibold text-custom-orange-strong mb-3">
               Explore
             </h6>
-            <ul>
+            <ul className="space-y-2">
               {pageLinks.map((link) => (
-                <li key={link.name} className="mb-3 text-lg">
-                  <Link href={link.path}>{link.name}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h6 className="text-xl text-custom-blue font-medium mb-5">
-              Follow Me
-            </h6>
-            <ul className="grid grid-cols-2 gap-x-10 gap-y-3">
-              {socialLinks.map((link) => (
-                <li
-                  key={link.name}
-                  className="flex items-center gap-2 group relative"
-                >
-                  <div className="hover:cursor-pointer">{link.icon}</div>
+                <li key={link.name}>
                   <Link
-                    className="group-hover:text-custom-blue relative z-20"
                     href={link.path}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    className="text-lg hover:text-custom-blue"
                   >
                     {link.name}
                   </Link>
@@ -149,28 +82,64 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-          <div>
-            <FooterButton
-              link="about"
-              text="About Me"
-              description="See my Resume !"
-            />
-            <FooterButton
-              link="projects"
-              text="My Projects"
-              description="Explore Projects"
-            />
+
+          {/* Social Links */}
+          <div className="text-center md:text-left">
+            <h6 className="text-xl font-semibold text-custom-blue mb-3">
+              Follow Me
+            </h6>
+            <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 place-items-center">
+              {socialLinks.map((link) => (
+                <li
+                  key={link.name}
+                  className="flex items-center justify-between gap-3"
+                >
+                  <SocialIcon
+                    network={link.network}
+                    style={{ height: 35, width: 35 }}
+                    url={link.path}
+                  />
+                  <Link
+                    href={link.path}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-custom-blue truncate"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-        <div className="text-[200px] text-center absolute inset-x-0 -bottom-25 font-bold z-0">
+
+        {/* Footer Buttons */}
+        <div className="flex flex-row justify-center items-center gap-5 md:gap-0 md:flex-col md:items-end mt-8 mb-5 md:space-y-5 md:mb-16 lg:mb-20 z-20">
+          <FooterButton
+            link="about"
+            text="About Me"
+            description="See my Resume !"
+          />
+          <FooterButton
+            link="projects"
+            text="My Projects"
+            description="Explore Projects"
+          />
+        </div>
+
+        {/* Footer Branding */}
+        <div className="text-[40px] sm:text-[80px] md:text-[100px] lg:text-[145px] xl:text-[160px] 2xl:text-[200px] text-center font-bold absolute inset-x-0 bottom-[-2.5%] sm:bottom-[-5%] md:bottom-[-10%] lg:bottom-[-15%] xl:bottom-[-18%] 2xl:bottom-[-22%] text-custom-text text-nowrap w-full">
           Chouaib Atmani
         </div>
+
+        {/* Bottom Bar */}
       </footer>
-      <div className="flex items-center justify-between text-custom-text w-full pb-3">
-        <div className="ml-10">chozex ©2024 - Privacy Policy</div>
-        <div className="mr-10">Constantine, Algeria</div>
+      <div className="flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm mt-5 pt-3">
+        <span>chozex ©2024 - Privacy Policy</span>
+        <span>Constantine, Algeria</span>
       </div>
     </>
   );
 };
+
 export default Footer;

@@ -7,6 +7,8 @@ import { IoBriefcaseOutline } from "react-icons/io5";
 import { FaRegAddressCard } from "react-icons/fa6";
 import { FaCircle } from "react-icons/fa";
 import { FaPlay, FaPause } from "react-icons/fa";
+import { RiMenu4Line } from "react-icons/ri"; // Import hamburger icon
+import { IoMdClose } from "react-icons/io"; // Import close icon
 
 const links = [
   { name: "Home", href: "/", icon: <SlHome /> },
@@ -16,6 +18,7 @@ const links = [
 
 export default function Navbar() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
@@ -45,35 +48,88 @@ export default function Navbar() {
     setIsPlaying(!isPlaying);
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  // Close mobile menu when a link is clicked
+  const handleLinkClick = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
-    <nav className="bg-custom-dark text-custom-text flex justify-between items-center py-4 thin-bottom-border min-w-full">
-      <div className="flex justify-center items-center gap-1 rounded-3xl thin-border px-3 py-2 ml-6">
-        <div>
-          <FaCircle />
+    <>
+      <nav className="bg-custom-dark text-custom-text flex justify-between items-center py-4 thin-bottom-border min-w-full">
+        <div className="flex justify-center items-center gap-1 rounded-3xl thin-border px-3 py-2 ml-3 md:ml-6">
+          <div>
+            <FaCircle />
+          </div>
+          <Link href={"/"}>choZex</Link>
         </div>
-        <Link href={"/"}>choZex</Link>
-      </div>
-      <div className="thin-border rounded-3xl">
-        <ul className="flex justify-center items-center gap-4 px-3 py-2">
-          {links.map((link) => (
-            <li
-              key={link.name}
-              className="hover:text-custom-blue hover:cursor-pointer flex justify-center items-center gap-1"
-            >
-              <div>{link.icon}</div>
-              <Link href={link.href}>{link.name}</Link>
+        
+        {/* Desktop Navigation */}
+        <div className="hidden md:block thin-border rounded-3xl">
+          <ul className="flex justify-center items-center gap-4 px-3 py-2">
+            {links.map((link) => (
+              <li
+                key={link.name}
+                className="hover:text-custom-blue hover:cursor-pointer flex justify-center items-center gap-1"
+              >
+                <div>{link.icon}</div>
+                <Link href={link.href}>{link.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        {/* Music Button - hidden on smallest screens */}
+        <button
+          onClick={togglePlayback}
+          className="hidden sm:flex rounded-3xl thin-border px-2 py-1 md:px-3 md:py-2 mr-3 md:mr-6 justify-center items-center gap-1 hover:cursor-pointer hover:text-custom-blue transition-colors"
+          aria-label={isPlaying ? "Pause music" : "Play music"}
+        >
+          <div>{isPlaying ? <FaPause /> : <FaPlay />}</div>
+          <span className="hidden md:inline">{isPlaying ? "Pause Music" : "Play Music"}</span>
+        </button>
+        
+        {/* Mobile Menu Button */}
+        <button 
+          onClick={toggleMobileMenu} 
+          className="md:hidden p-2 mr-3 hover:text-custom-blue"
+          aria-label="Toggle mobile menu"
+        >
+          {isMobileMenuOpen ? <IoMdClose size={24} /> : <RiMenu4Line size={24} />}
+        </button>
+      </nav>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-custom-dark text-custom-text py-2 thin-bottom-border">
+          <ul className="flex flex-col items-center space-y-3 py-4">
+            {links.map((link) => (
+              <li
+                key={link.name}
+                className="hover:text-custom-blue hover:cursor-pointer flex justify-center items-center gap-2 w-full px-4 py-2"
+                onClick={handleLinkClick}
+              >
+                <div>{link.icon}</div>
+                <Link href={link.href}>{link.name}</Link>
+              </li>
+            ))}
+            {/* Music control for mobile */}
+            <li className="sm:hidden w-full px-4 py-2">
+              <button
+                onClick={togglePlayback}
+                className="flex w-full justify-center items-center gap-2 hover:text-custom-blue"
+                aria-label={isPlaying ? "Pause music" : "Play music"}
+              >
+                <div>{isPlaying ? <FaPause /> : <FaPlay />}</div>
+                <span>{isPlaying ? "Pause Music" : "Play Music"}</span>
+              </button>
             </li>
-          ))}
-        </ul>
-      </div>
-      <button
-        onClick={togglePlayback}
-        className="flex rounded-3xl thin-border px-3 py-2 mr-6 justify-center items-center gap-1 hover:cursor-pointer hover:text-custom-blue transition-colors"
-        aria-label={isPlaying ? "Pause music" : "Play music"}
-      >
-        <div>{isPlaying ? <FaPause /> : <FaPlay />}</div>
-        {isPlaying ? "Pause Music" : "Play Music"}
-      </button>
-    </nav>
+          </ul>
+        </div>
+      )}
+    </>
   );
 }

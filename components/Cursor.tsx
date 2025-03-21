@@ -79,9 +79,13 @@ const Cursor = ({
     const rect = parentRef.current.getBoundingClientRect();
 
     const newX =
-      rect.left + rect.width / 2 + Math.cos(angleRef.current) * radiusRef.current;
+      rect.left +
+      rect.width / 2 +
+      Math.cos(angleRef.current) * radiusRef.current;
     const newY =
-      rect.top + rect.height / 2 + Math.sin(angleRef.current) * radiusRef.current;
+      rect.top +
+      rect.height / 2 +
+      Math.sin(angleRef.current) * radiusRef.current;
 
     setPosition({ x: newX, y: newY });
     requestRef.current = requestAnimationFrame(animate);
@@ -188,7 +192,7 @@ const Cursor = ({
           left: "25px",
           background: bgColor,
           color: "#fff",
-          padding: "8px 12px",
+          padding: "6px 10px",
           borderRadius: "10px",
           fontSize: "16px",
           fontWeight: 500,

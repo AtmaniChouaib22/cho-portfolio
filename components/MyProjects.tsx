@@ -6,7 +6,6 @@ import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TooltipProvider } from "@/components/tooltip";
-import { link } from "fs";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -90,8 +89,8 @@ const MyProjects = () => {
 
   return (
     <TooltipProvider>
-      <div className="w-full px-40">
-        <h3 className="text-custom-violet font-semibold text-4xl pb-5">
+      <div className="sm:w-full sm:px-4O">
+        <h3 className="text-custom-violet font-semibold text-4xl sm:ml-10 mb-12 sm:b-5">
           My Projects
         </h3>
         <div className="flex justify-end items-center pb-5">
@@ -100,7 +99,7 @@ const MyProjects = () => {
             <PiBriefcaseLight size={40} className="text-black" />
           </div>
         </div>
-        <div ref={containerRef} className="mb-10">
+        <div ref={containerRef} className="mb-10 flex flex-col gap-10">
           <MyProjectsBox
             ref={(el) => {
               if (el) {
@@ -167,5 +166,3 @@ const MyProjects = () => {
 };
 
 export default MyProjects;
-
-

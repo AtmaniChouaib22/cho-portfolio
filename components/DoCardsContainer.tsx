@@ -96,7 +96,7 @@ const DoCardsContainer = () => {
       <h3 className="text-center text-4xl text-custom-violet pb-7">
         WHAT I DO
       </h3>
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4">
         <div
           ref={(el) => {
             if (el) cardsRef.current[0] = el;

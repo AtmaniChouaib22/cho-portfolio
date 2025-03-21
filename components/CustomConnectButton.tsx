@@ -75,7 +75,7 @@ const CustomButton = ({ text }: CustomButtonProps) => {
     <Link
       ref={link}
       href={""}
-      className="relative flex justify-center items-center text-white text-xl py-2 px-3 overflow-hidden thin-border rounded-full"
+      className="relative flex justify-center items-center text-white text-md md:text-xl  py-0.5 px-0.5 md:py-2 md:px-3 overflow-hidden thin-border rounded-full"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -84,17 +84,17 @@ const CustomButton = ({ text }: CustomButtonProps) => {
         className="absolute bottom-0 left-0 w-full h-0 bg-custom-orange-strong z-0 transition-all duration-500"
       ></div>
 
-      <div className="relative z-10 flex items-center gap-3 px-2 py-1">
+      <div className="relative z-10 flex items-center gap-1 px-0.5 py-0.5 md:gap-3 md:px-2 md:py-1">
         <div
           ref={bulletRef}
-          className="w-3 h-3 rounded-full bg-green-500 shadow-green"
+          className="md:w-3 md:h-3 w-2 h-2 rounded-full bg-green-500 shadow-green"
         />
-        <span className="text-md">{text}</span>
+        <span className="md:text-lg text-xs">{text}</span>
       </div>
 
       <FaArrowRightLong
         size={25}
-        className="relative z-10 inline ml-1 text-white"
+        className="w-[15px] h-[15px] relative z-10 inline ml-1 text-white"
       />
     </Link>
   );

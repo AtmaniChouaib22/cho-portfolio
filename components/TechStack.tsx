@@ -38,15 +38,17 @@ const TechStack = () => {
   const allTechnologies = [...technologies, ...technologies];
 
   return (
-    <div className="w-full overflow-hidden bg-custom-dark py-8 text-white">
-      <div className="container mx-auto px-4">
+    <div className="w-screen sm:w-full overflow-hidden bg-custom-dark py-8 text-white">
+      <div className="container sm:mx-auto sm:px-4">
         <h4 className="text-4xl font-semibold text-center mb-6 text-custom-violet">
           My TECH STACK
         </h4>
-        <p className="text-center mb-8 px-10 mx-30 text-3xl ">
-          My expertise spans a diverse range of <span className="text-custom-orange-strong">technologies</span>, enabling me to
-          deliver comprehensive and <span className="text-custom-cy">cutting-edge</span> solutions across various
-          platforms.
+        <p className="text-xl text-center mb-8 px-10 sm:mx-30 sm:text-3xl ">
+          My expertise spans a diverse range of{" "}
+          <span className="text-custom-orange-strong">technologies</span>,
+          enabling me to deliver comprehensive and{" "}
+          <span className="text-custom-cy">cutting-edge</span> solutions across
+          various platforms.
         </p>
 
         <div className="relative w-full ">
@@ -57,7 +59,7 @@ const TechStack = () => {
           <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-custom-dark to-transparent z-10"></div>
 
           {/* Carousel container */}
-          <div className="overflow-hidden relative w-full px-8">
+          <div className="overflow-hidden relative w-screen md:w-full px-8">
             <div
               className="flex items-center"
               style={{
@@ -69,16 +71,19 @@ const TechStack = () => {
               {allTechnologies.map((tech, index) => (
                 <div
                   key={`tech-${index}`}
-                  className="flex flex-col items-center justify-center w-18 mx-2 flex-shrink-0"
+                  className="flex flex-col items-center justify-center w-10 sm:w-16 md:w-18 mx-1 sm:mx-2 flex-shrink-0"
                 >
-                  <div className="text-4xl mb-2">{tech.icon}</div>
-                  <div className="text-sm text-center">{tech.name}</div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl mb-1 sm:mb-2">
+                    {tech.icon}
+                  </div>
+                  <div className="text-xs sm:text-sm text-center">
+                    {tech.name}
+                  </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* CSS for the animation */}
           <style jsx>{`
             @keyframes carouselAnimation {
               0% {
