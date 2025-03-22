@@ -12,7 +12,7 @@ const TooltipContext = createContext({
 });
 
 // Provider component
-export const TooltipProvider = ({ children }) => {
+export const TooltipProvider = ({ children }: { children: React.ReactNode }) => {
   const [tooltipState, setTooltipState] = useState({
     showTooltip: false,
     tooltipContent: "",
