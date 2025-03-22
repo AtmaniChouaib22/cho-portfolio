@@ -1,7 +1,6 @@
 "use client";
 import React, { createContext, useContext, useState } from "react";
 
-// Create a context for tooltip state
 const TooltipContext = createContext({
   showTooltip: false,
   tooltipContent: "",
@@ -11,7 +10,6 @@ const TooltipContext = createContext({
   updatePosition: (x: number, y: number) => {},
 });
 
-// Provider component
 export const TooltipProvider = ({ children }: { children: React.ReactNode }) => {
   const [tooltipState, setTooltipState] = useState({
     showTooltip: false,
@@ -50,10 +48,8 @@ export const TooltipProvider = ({ children }: { children: React.ReactNode }) => 
   );
 };
 
-// Hook to use the tooltip
 export const useTooltip = () => useContext(TooltipContext);
 
-// Cursor tooltip component
 const CursorTooltip = () => {
   const { showTooltip, tooltipContent, tooltipColor, tooltipPosition } =
     useTooltip();

@@ -34,7 +34,7 @@ const TechStack = () => {
     { name: "Redux", icon: <StackIcon name="redux" /> },
   ];
 
-  // Double the technologies for seamless loop
+  
   const allTechnologies = [...technologies, ...technologies];
 
   return (
@@ -52,10 +52,10 @@ const TechStack = () => {
         </p>
 
         <div className="relative w-full ">
-          {/* Fade gradient on the left side - matching bg-custom-dark */}
+        
           <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-custom-dark to-transparent z-10"></div>
 
-          {/* Fade gradient on the right side - matching bg-custom-dark */}
+          
           <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-custom-dark to-transparent z-10"></div>
 
           {/* Carousel container */}

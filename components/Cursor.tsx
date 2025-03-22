@@ -2,78 +2,67 @@
 import { useState, useEffect, useRef } from "react";
 
 interface CursorProps {
-  parentSelector?: string; // Optional selector for the parent element
-  tooltipText?: string; // Optional custom tooltip text
+  parentSelector?: string;
+  tooltipText?: string;
   cursorColor?: string;
-  bgColor?: string; // Optional custom cursor color
+  bgColor?: string;
 }
 
 const Cursor = ({
   parentSelector = "body",
   tooltipText = "Hello there!",
   cursorColor = "#fff",
-  bgColor = "fff", // Default white color
+  bgColor = "fff",
 }: CursorProps) => {
-  // Track cursor position
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isInitialized, setIsInitialized] = useState(false);
 
-  // Animation references with simplified values
   const requestRef = useRef<number | undefined>(undefined);
-  const angleRef = useRef(Math.random() * Math.PI * 2); // Random start angle
-  const radiusRef = useRef(30); // Fixed initial radius
+  const angleRef = useRef(Math.random() * Math.PI * 2);
+  const radiusRef = useRef(30);
   const centerRef = useRef({ x: 0, y: 0 });
-  const speedRef = useRef(0.015); // Consistent speed
+  const speedRef = useRef(0.015);
   const parentRef = useRef<Element | null>(null);
   const cursorRef = useRef<HTMLDivElement | null>(null);
 
-  // Smoothing references
   const targetRadiusRef = useRef(30);
   const targetSpeedRef = useRef(0.015);
 
-  // Get parent element dimensions and position
   const updateParentCenter = () => {
     if (!parentRef.current) return;
 
     const rect = parentRef.current.getBoundingClientRect();
 
-    // Calculate center of the parent element in page coordinates
     centerRef.current = {
       x: rect.left + rect.width / 2,
       y: rect.top + rect.height / 2,
     };
 
-    // Adjust radius based on parent size (keep it proportional but reasonable)
     const minDimension = Math.min(rect.width, rect.height) / 4;
-    const maxRadius = Math.min(60, Math.max(30, minDimension - 20)); // Between 30-60px
+    const maxRadius = Math.min(60, Math.max(30, minDimension - 20));
     targetRadiusRef.current = maxRadius;
   };
 
   const animate = () => {
     if (!parentRef.current) return;
 
-    // Smooth radius transition (lerp towards target)
     radiusRef.current += (targetRadiusRef.current - radiusRef.current) * 0.05;
 
-    // Add subtle randomness to target radius for organic movement
     targetRadiusRef.current += (Math.random() - 0.5) * 0.5;
-    // Keep target within reasonable bounds
+
     targetRadiusRef.current = Math.max(
       25,
       Math.min(60, targetRadiusRef.current)
     );
 
-    // Smooth speed transition
     speedRef.current += (targetSpeedRef.current - speedRef.current) * 0.1;
 
-    // Add subtle randomness to speed
     targetSpeedRef.current += (Math.random() - 0.5) * 0.0005;
     targetSpeedRef.current = Math.max(
       0.01,
       Math.min(0.02, targetSpeedRef.current)
     );
 
-    // Calculate new position with consistent motion
     angleRef.current += speedRef.current;
 
     const rect = parentRef.current.getBoundingClientRect();
@@ -92,10 +81,8 @@ const Cursor = ({
   };
 
   useEffect(() => {
-    // Client-side only code
     if (typeof window === "undefined") return;
 
-    // Find the parent element with retry logic
     const initializeParent = () => {
       const parent = document.querySelector(parentSelector);
 
@@ -104,14 +91,12 @@ const Cursor = ({
         updateParentCenter();
         setIsInitialized(true);
 
-        // Monitor for parent size/position changes
         const resizeObserver = new ResizeObserver(() => {
           updateParentCenter();
         });
 
         resizeObserver.observe(parent);
 
-        // Start animation after a small delay to ensure everything is loaded
         setTimeout(() => {
           requestRef.current = requestAnimationFrame(animate);
         }, 100);
@@ -121,25 +106,19 @@ const Cursor = ({
       return null;
     };
 
-    // Try to initialize, with retries for complex layouts
     let resizeObserver: ResizeObserver | null = initializeParent();
 
-    // If parent not found initially, retry a few times
     if (!resizeObserver) {
       const retryTimer = setInterval(() => {
         resizeObserver = initializeParent();
         if (resizeObserver) clearInterval(retryTimer);
       }, 500);
 
-      // Clean up retry timer if component unmounts during retries
       return () => clearInterval(retryTimer);
     }
 
-    // We don't need a separate scroll handler since we recalculate based on
-    // getBoundingClientRect in every animation frame, which accounts for scrolling
     window.addEventListener("resize", updateParentCenter);
 
-    // Cleanup on unmount
     return () => {
       if (requestRef.current) {
         cancelAnimationFrame(requestRef.current);
@@ -151,17 +130,15 @@ const Cursor = ({
     };
   }, [parentSelector]);
 
-  // Return null if not initialized
   if (!isInitialized) return null;
 
-  // Determine if we should use mix-blend-mode based on color
   const isLightColor = cursorColor === "#fff" || cursorColor === "#ffffff";
 
   return (
     <div
       ref={cursorRef}
       style={{
-        position: "fixed", // Keep fixed to overlay correctly
+        position: "fixed",
         top: 0,
         left: 0,
         pointerEvents: "none",
@@ -169,7 +146,6 @@ const Cursor = ({
         transition: "transform 0.1s cubic-bezier(0.25, 0.1, 0.25, 1)",
       }}
     >
-      {/* Mouse cursor shape */}
       <div
         style={{
           width: 0,
@@ -184,7 +160,6 @@ const Cursor = ({
         }}
       />
 
-      {/* Tooltip */}
       <div
         style={{
           position: "absolute",

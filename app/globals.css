@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* lenis custom css */
 html.lenis,
 html.lenis body {
   height: auto;

@@ -10,11 +10,11 @@ const MusicButton = ({ audioSrc }: MusicButtonProps) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    // Create audio element
+    
     audioRef.current = new Audio(audioSrc);
     audioRef.current.loop = true;
     
-    // Cleanup on unmount
+    
     return () => {
       if (audioRef.current) {
         audioRef.current.pause();

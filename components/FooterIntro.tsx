@@ -20,7 +20,7 @@ const FooterIntro = () => {
     const t2 = gsap.timeline();
 
     const handleMouseOver = () => {
-      // Check if we're on mobile
+    
       const isMobile = window.innerWidth < 768;
       const yOffset = isMobile ? -20 : -30;
       const xOffsets = isMobile ? [-10, -5, 5, 10] : [-20, -10, 10, 20];

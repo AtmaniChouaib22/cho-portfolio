@@ -48,7 +48,7 @@ const MyProjectsBox = forwardRef<HTMLDivElement, MyProjectsBoxProps>(
         updatePosition(e.clientX, e.clientY);
       };
 
-      // Add event listeners
+      
       boxElement.addEventListener("mouseover", handleMouseOver);
       boxElement.addEventListener("mouseleave", handleMouseLeave);
       boxElement.addEventListener("mousemove", handleMouseMove);

@@ -12,11 +12,10 @@ gsap.registerPlugin(ScrollTrigger);
 const MyProjects = () => {
   const cardsRef = useRef<HTMLDivElement[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
-  // Store our ScrollTrigger instances
+
   const myScrollTriggers = useRef<ScrollTrigger[]>([]);
 
   useEffect(() => {
-    // Clear ONLY our own ScrollTriggers, not all of them
     myScrollTriggers.current.forEach((trigger) => trigger.kill());
     myScrollTriggers.current = [];
 
@@ -25,7 +24,6 @@ const MyProjects = () => {
       return;
     }
 
-    // Create animations for each card
     cardsRef.current.forEach((card, index) => {
       if (!card) return;
 
@@ -35,7 +33,6 @@ const MyProjects = () => {
         paused: true,
       });
 
-      // Add the animation to the timeline
       tl.fromTo(
         card,
         {
@@ -52,10 +49,8 @@ const MyProjects = () => {
         }
       );
 
-      // Create unique ID for this ScrollTrigger
       const triggerId = `project-card-${index}`;
 
-      // Create ScrollTrigger for each card
       ScrollTrigger.create({
         id: triggerId,
         trigger: card,
@@ -63,23 +58,19 @@ const MyProjects = () => {
         end: "bottom top+=100",
         onEnter: () => tl.restart(),
         onEnterBack: () => tl.restart(),
-        // markers: true, // debugging
       });
 
-      // Store this ScrollTrigger
       const trigger = ScrollTrigger.getById(triggerId);
       if (trigger) myScrollTriggers.current.push(trigger);
 
-      // Check if card is already in view
       const rect = card.getBoundingClientRect();
       const isInView = rect.top < window.innerHeight;
 
       if (isInView) {
-        tl.play(); // Play immediately if in view
+        tl.play();
       }
     });
 
-    // Cleanup only our own ScrollTriggers
     return () => {
       myScrollTriggers.current.forEach((trigger) => {
         if (trigger) trigger.kill();

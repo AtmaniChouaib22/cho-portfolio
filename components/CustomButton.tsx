@@ -50,12 +50,12 @@ const CustomButton = ({ text, href }: CustomButtonProps) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Background fill div */}
+    
       <div
         ref={fillDiv}
         className="absolute bottom-0 left-0 w-full h-0 bg-custom-orange-strong z-0 transition-all duration-500"
       ></div>
-      {/* Button content */}
+     
       <span className="relative z-10 px-2 py-1 text-lg md:text-2xl">
         {text}
       </span>

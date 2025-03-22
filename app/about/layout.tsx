@@ -1,16 +1,13 @@
-import React from 'react';
+import React from "react";
 
 export default function AboutLayout({
-    children,
+  children,
 }: {
-    children: React.ReactNode
+  children: React.ReactNode;
 }) {
-    return (
-        <section className="about-section">
-            {/* You can add About-specific UI elements here */}
-            <div className="about-container">
-                {children}
-            </div>
-        </section>
-    );
+  return (
+    <section className="about-section">
+      <div className="about-container">{children}</div>
+    </section>
+  );
 }

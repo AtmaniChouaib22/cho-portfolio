@@ -7,8 +7,8 @@ import { IoBriefcaseOutline } from "react-icons/io5";
 import { FaRegAddressCard } from "react-icons/fa6";
 import { FaCircle } from "react-icons/fa";
 import { FaPlay, FaPause } from "react-icons/fa";
-import { RiMenu4Line } from "react-icons/ri"; // Import hamburger icon
-import { IoMdClose } from "react-icons/io"; // Import close icon
+import { RiMenu4Line } from "react-icons/ri"; 
+import { IoMdClose } from "react-icons/io"; 
 
 const links = [
   { name: "Home", href: "/", icon: <SlHome /> },
@@ -22,11 +22,11 @@ export default function Navbar() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    // Create audio element
+    
     audioRef.current = new Audio("/chill-house-sunset.mp3");
     audioRef.current.loop = true;
 
-    // Cleanup on unmount
+    
     return () => {
       if (audioRef.current) {
         audioRef.current.pause();
@@ -52,7 +52,7 @@ export default function Navbar() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  // Close mobile menu when a link is clicked
+  
   const handleLinkClick = () => {
     setIsMobileMenuOpen(false);
   };
@@ -67,7 +67,7 @@ export default function Navbar() {
           <Link href={"/"}>choZex</Link>
         </div>
         
-        {/* Desktop Navigation */}
+       
         <div className="hidden md:block thin-border rounded-3xl">
           <ul className="flex justify-center items-center gap-4 px-3 py-2">
             {links.map((link) => (
@@ -82,7 +82,7 @@ export default function Navbar() {
           </ul>
         </div>
         
-        {/* Music Button - hidden on smallest screens */}
+        
         <button
           onClick={togglePlayback}
           className="hidden sm:flex rounded-3xl thin-border px-2 py-1 md:px-3 md:py-2 mr-3 md:mr-6 justify-center items-center gap-1 hover:cursor-pointer hover:text-custom-blue transition-colors"
@@ -92,7 +92,7 @@ export default function Navbar() {
           <span className="hidden md:inline">{isPlaying ? "Pause Music" : "Play Music"}</span>
         </button>
         
-        {/* Mobile Menu Button */}
+        
         <button 
           onClick={toggleMobileMenu} 
           className="md:hidden p-2 mr-3 hover:text-custom-blue"
@@ -102,7 +102,7 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
+    
       {isMobileMenuOpen && (
         <div className="md:hidden bg-custom-dark text-custom-text py-2 thin-bottom-border">
           <ul className="flex flex-col items-center space-y-3 py-4">
@@ -116,7 +116,7 @@ export default function Navbar() {
                 <Link href={link.href}>{link.name}</Link>
               </li>
             ))}
-            {/* Music control for mobile */}
+          
             <li className="sm:hidden w-full px-4 py-2">
               <button
                 onClick={togglePlayback}

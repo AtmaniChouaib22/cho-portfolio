@@ -55,7 +55,7 @@ const Footer = () => {
     <>
       <footer className="flex flex-col text-custom-text thin-border rounded-lg w-full py-10 px-5 md:px-10 lg:px-20 relative overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
-          {/* Branding */}
+         
           <div className="text-center md:text-left">
             <h6 className="text-2xl font-semibold">
               Where <span className="text-custom-violet">aesthetics</span> &
@@ -64,7 +64,7 @@ const Footer = () => {
             </h6>
           </div>
 
-          {/* Page Links */}
+          
           <div className="text-center md:text-left">
             <h6 className="text-xl font-semibold text-custom-orange-strong mb-3">
               Explore
@@ -83,7 +83,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Social Links */}
+          
           <div className="text-center md:text-left">
             <h6 className="text-xl font-semibold text-custom-blue mb-3">
               Follow Me
@@ -113,7 +113,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Footer Buttons */}
+       
         <div className="flex flex-row justify-center items-center gap-5 md:gap-0 md:flex-col md:items-end mt-8 mb-5 md:space-y-5 md:mb-16 lg:mb-20 z-20">
           <FooterButton
             link="about"
@@ -127,12 +127,12 @@ const Footer = () => {
           />
         </div>
 
-        {/* Footer Branding */}
+       
         <div className="text-[40px] sm:text-[80px] md:text-[100px] lg:text-[145px] xl:text-[160px] 2xl:text-[200px] text-center font-bold absolute inset-x-0 bottom-[-2.5%] sm:bottom-[-5%] md:bottom-[-10%] lg:bottom-[-15%] xl:bottom-[-18%] 2xl:bottom-[-22%] text-custom-text text-nowrap w-full">
           Chouaib Atmani
         </div>
 
-        {/* Bottom Bar */}
+      
       </footer>
       <div className="flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm mt-5 pt-3">
         <span>chozex ©2024 - Privacy Policy</span>

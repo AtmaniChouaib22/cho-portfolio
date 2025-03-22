@@ -42,16 +42,16 @@ export default function RootLayout({
   }, [showGreeting]);
 
   useEffect(() => {
-    //initial animation
+    
     outerTimeout.current = setTimeout(() => {
       setFirstLoad(false);
       clearInterval(innerInterval.current as NodeJS.Timeout | undefined);
       clearTimeout(innerTimeout.current as NodeJS.Timeout | undefined);
-      //show greeting
+      
       innerInterval.current = setInterval(() => {
         setIndex((prev) => (prev + 1) % greetings.length);
       }, 200);
-      //hide greeting
+      
       innerTimeout.current = setTimeout(() => {
         clearInterval(innerInterval.current as NodeJS.Timeout | undefined);
         setShowGreeting(false);

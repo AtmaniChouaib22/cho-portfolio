@@ -13,17 +13,14 @@ gsap.registerPlugin(ScrollTrigger);
 const DoCardsContainer = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
-  // Store our ScrollTrigger instances
+
   const myScrollTriggers = useRef<ScrollTrigger[]>([]);
 
   useEffect(() => {
-    // Wait a small amount of time to ensure DOM elements are properly mounted
     const timer = setTimeout(() => {
-      // Clear ONLY our own ScrollTriggers, not all of them
       myScrollTriggers.current.forEach((trigger) => trigger.kill());
       myScrollTriggers.current = [];
 
-      // Make sure we have refs before continuing
       if (
         !containerRef.current ||
         cardsRef.current.filter(Boolean).length === 0
@@ -32,10 +29,8 @@ const DoCardsContainer = () => {
         return;
       }
 
-      // Tell GSAP to refresh ScrollTrigger
       ScrollTrigger.refresh();
 
-      // Fade IN timeline
       const inTimeline = gsap.timeline({
         scrollTrigger: {
           id: "doCards-fadeIn",
@@ -54,10 +49,8 @@ const DoCardsContainer = () => {
         ease: "power2.out",
       });
 
-      // Store this ScrollTrigger
       myScrollTriggers.current.push(ScrollTrigger.getById("doCards-fadeIn")!);
 
-      // Fade OUT timeline
       const outTimeline = gsap.timeline({
         scrollTrigger: {
           id: "doCards-fadeOut",
@@ -76,9 +69,8 @@ const DoCardsContainer = () => {
         ease: "power2.in",
       });
 
-      // Store this ScrollTrigger too
       myScrollTriggers.current.push(ScrollTrigger.getById("doCards-fadeOut")!);
-    }, 100); // Small delay to ensure DOM is ready
+    }, 100);
 
     return () => {
       clearTimeout(timer);

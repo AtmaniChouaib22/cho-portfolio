@@ -5,8 +5,6 @@ import { FaGithub } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { PiReadCvLogo } from "react-icons/pi";
-import { getColorClasses } from "@/utils/helpers";
-import MiniArticle from "@/components/AboutComponents/MiniArticle";
 import ArticlesSection from "@/components/AboutComponents/ArticlesSection";
 import SkillsCompo from "@/components/AboutComponents/SkillsCompo";
 
@@ -109,7 +107,6 @@ const skillsInfo = [
 const About = () => {
   return (
     <div className="flex flex-col md:flex-row w-full min-h-screen text-white">
-      {/* Left section - Personal info */}
       <section className="w-full md:w-1/2 bg-custom-dark-blue p-8 flex flex-col items-start">
         <div className="mb-6 relative w-[150px] h-[150px] rounded-full overflow-hidden">
           <Image
@@ -120,7 +117,7 @@ const About = () => {
             sizes="150px"
           />
         </div>
-        {/* info */}
+
         <div className=" text-custom-text">
           <h1 className="text-3xl font-bold mb-2">Chouaib Atmani</h1>
           <div className="text-xl mb-1">Full Stack Web Developer</div>
@@ -128,7 +125,7 @@ const About = () => {
           <div className="max-w-md text-lg italic mb-8">
             Building Real Projects for Real Clients, Not Just More Projects
           </div>
-          {/* social media */}
+
           <div className="w-full flex gap-4">
             <div className="mb-4">
               <Link
@@ -166,9 +163,8 @@ const About = () => {
         <ArticlesSection />
       </section>
 
-      {/* Right section - Details */}
       <section className="w-full md:w-1/2 bg-custom-darker-blue p-8 overflow-y-auto">
-        {/* about me  */}
+      
         <div className="mb-8">
           <h3 className="text-2xl font-bold text-custom-text mb-4">About Me</h3>
           <div className="leading-relaxed flex flex-col gap-4 text-custom-text">
@@ -194,7 +190,7 @@ const About = () => {
             </p>
           </div>
         </div>
-        {/* Other sections remain the same with added styling */}
+
         <div className="mb-8">
           <h3 className="text-2xl font-bold text-custom-text mb-4">Skills</h3>
           <div>
