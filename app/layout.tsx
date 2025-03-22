@@ -1,6 +1,5 @@
 "use client";
 import "./globals.css";
-import { Inter } from "@next/font/google";
 import { ReactLenis } from "@/utils/lenis";
 import NavBar from "@/components/NavBar";
 
@@ -19,11 +18,6 @@ const greetings = [
   ".Hallo",
   ".Ciao",
 ];
-
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["100", "300", "400", "500", "700", "900"],
-});
 
 export default function RootLayout({
   children,
@@ -95,7 +89,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ReactLenis root>
-        <body className={`${inter.className} bg-custom-dark`}>
+        <body className="bg-custom-dark">
           <div
             ref={greetingRef}
             className="absolute z-50 min-h-screen inset-0 flex items-center justify-center bg-custom-dark text-custom-text text-5xl font-bold"
