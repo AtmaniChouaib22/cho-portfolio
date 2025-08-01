@@ -7,6 +7,29 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const projectsInfo = [
   {
+    title: "FlameGuard",
+    year: "2025",
+    description:
+      "A comprehensive fire safety and emergency response mobile application built with React Native and Expo, featuring real-time alerts, emergency communication, and location-based services.",
+    list: [
+      "Real-time fire detection and emergency alert system",
+      "Location-based mapping with emergency route guidance",
+      "Role-based navigation (users vs rescuers) with different interfaces",
+      "Emergency chat system for communication during alerts",
+      "User profile management with emergency contacts",
+      "Alert history tracking and management",
+      "Safety tips and emergency preparedness resources",
+      "Push notifications for instant emergency alerts",
+      "Firebase integration for real-time data synchronization",
+      "Cross-platform support (iOS, Android, Web)",
+    ],
+    link: "https://github.com/AtmaniChouaib22/FlameGuard_v1",
+    stack:
+      "React Native, Expo, JavaScript, TypeScript, Firebase,, Node.js",
+    image: "/flameGuard.jpeg",
+    isReversed: false,
+  },
+  {
     title: "Zex Cars",
     year: "2024",
     description:
@@ -24,7 +47,7 @@ const projectsInfo = [
     stack:
       "ExpressJs, React.js, MongoDb, Node.js, shadcnUi, passportJs, express-session, TailwindCSS",
     image: "/zex-cars.png",
-    isReversed: false,
+    isReversed: true,
   },
   {
     title: "Mood",
