@@ -54,8 +54,7 @@ const Footer = () => {
   return (
     <>
       <footer className="flex flex-col text-custom-text thin-border rounded-lg w-full py-10 px-5 md:px-10 lg:px-20 relative overflow-hidden">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
-         
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] md:justify-center gap-10 items-start">
           <div className="text-center md:text-left">
             <h6 className="text-2xl font-semibold">
               Where <span className="text-custom-violet">aesthetics</span> &
@@ -64,17 +63,20 @@ const Footer = () => {
             </h6>
           </div>
 
-          
           <div className="text-center md:text-left">
             <h6 className="text-xl font-semibold text-custom-orange-strong mb-3">
               Explore
             </h6>
-            <ul className="space-y-2">
+            {/* three columns on mobile, single column on md+, simple link items without icons */}
+            <ul className="grid grid-cols-3 md:grid-cols-1 gap-2">
               {pageLinks.map((link) => (
-                <li key={link.name}>
+                <li
+                  key={link.name}
+                  className="w-full min-w-0 px-2 flex items-center justify-center md:justify-start"
+                >
                   <Link
                     href={link.path}
-                    className="text-lg hover:text-custom-blue"
+                    className="text-lg hover:text-custom-blue block text-center md:text-left truncate w-full"
                   >
                     {link.name}
                   </Link>
@@ -83,37 +85,42 @@ const Footer = () => {
             </ul>
           </div>
 
-          
-          <div className="text-center md:text-left">
+          <div className="text-center md:text-center">
             <h6 className="text-xl font-semibold text-custom-blue mb-3">
               Follow Me
             </h6>
-            <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 place-items-center">
+            <ul className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3">
               {socialLinks.map((link) => (
                 <li
                   key={link.name}
-                  className="flex items-center justify-between gap-3"
+                  className="flex items-center w-full min-w-0 px-2"
                 >
-                  <SocialIcon
-                    network={link.network}
-                    style={{ height: 35, width: 35 }}
-                    url={link.path}
-                  />
-                  <Link
-                    href={link.path}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-custom-blue truncate"
-                  >
-                    {link.name}
-                  </Link>
+                  <div className="w-1/2 flex items-center justify-center">
+                    <div className="w-9 h-9 flex items-center justify-center">
+                      <SocialIcon
+                        network={link.network}
+                        style={{ height: 28, width: 28 }}
+                        url={link.path}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="w-1/2 flex items-center">
+                    <Link
+                      href={link.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-custom-blue truncate text-left min-w-0 w-full"
+                    >
+                      {link.name}
+                    </Link>
+                  </div>
                 </li>
               ))}
             </ul>
           </div>
         </div>
 
-       
         <div className="flex flex-row justify-center items-center gap-5 md:gap-0 md:flex-col md:items-end mt-8 mb-5 md:space-y-5 md:mb-16 lg:mb-20 z-20">
           <FooterButton
             link="about"
@@ -127,12 +134,9 @@ const Footer = () => {
           />
         </div>
 
-       
         <div className="text-[40px] sm:text-[80px] md:text-[100px] lg:text-[145px] xl:text-[160px] 2xl:text-[200px] text-center font-bold absolute inset-x-0 bottom-[-2.5%] sm:bottom-[-5%] md:bottom-[-10%] lg:bottom-[-15%] xl:bottom-[-18%] 2xl:bottom-[-22%] text-custom-text text-nowrap w-full">
           Chouaib Atmani
         </div>
-
-      
       </footer>
       <div className="flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm mt-5 pt-3">
         <span>chozex ©2024 - Privacy Policy</span>
