@@ -10,7 +10,11 @@ const TooltipContext = createContext({
   updatePosition: (x: number, y: number) => {},
 });
 
-export const TooltipProvider = ({ children }: { children: React.ReactNode }) => {
+export const TooltipProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   const [tooltipState, setTooltipState] = useState({
     showTooltip: false,
     tooltipContent: "",
