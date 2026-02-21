@@ -10,7 +10,7 @@ const projectsInfo = [
     title: "GoldGest",
     year: "2026",
     description:
-      "GoldGest is a SaaS software solution for managing gold enterprise wholesale, available as both desktop and mobile app. Built with ElectronJS, React Native, PostgreSQL, ReactJS, Prisma, and more. Features real-time gold and currency exchange rates, sales and purchase management, broken jewelry purchases, import, transport, export, refining, and more. Includes WhatsApp invoice sharing, secure and precise automated calculations, and supports multiple user roles and permissions.",
+      "GoldGest is a modern SaaS solution for gold enterprise wholesale management. Available as both a desktop and mobile app, it streamlines client, supplier, and transaction tracking, offering real-time analytics and robust reporting for gold businesses.",
     list: [
       "Comprehensive client and supplier management",
       "Track purchases, sales, and returns with ease",
@@ -20,12 +20,11 @@ const projectsInfo = [
       "Role-based access and secure authentication",
       "Responsive design for desktop and mobile",
       "User-friendly dashboards and notifications",
-      // ...existing code...
+      "SaaS cloud-based accessibility",
       "Advanced search and filtering options",
     ],
     link: "https://goldgest.lovable.app/",
-    stack:
-      "React.js, Electron, Next.js, TypeScript, TailwindCSS, Node.js, PostgreSQL",
+    stack: "React.js, Electron, Next.js, TypeScript, TailwindCSS, Node.js, PostgreSQL",
     image: "/goldgest.png",
     isReversed: false,
   },
@@ -207,7 +206,7 @@ const MyProjects = () => {
           scale: 1,
           duration: 1.5,
           ease: "power2.out",
-        },
+        }
       );
 
       // Create unique ID for this ScrollTrigger

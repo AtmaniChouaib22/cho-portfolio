@@ -20,12 +20,11 @@ const projectsInfo = [
       "Role-based access and secure authentication",
       "Responsive design for desktop and mobile",
       "User-friendly dashboards and notifications",
-      // ...existing code...
+      "SaaS cloud-based accessibility",
       "Advanced search and filtering options",
     ],
     link: "https://goldgest.lovable.app/",
-    stack:
-      "React.js, Electron, Next.js, TypeScript, TailwindCSS, Node.js, PostgreSQL",
+    stack: "React.js, Electron, Next.js, TypeScript, TailwindCSS, Node.js, PostgreSQL",
     image: "/goldgest.png",
     isReversed: false,
   },
@@ -207,7 +206,7 @@ const MyProjects = () => {
           scale: 1,
           duration: 1.5,
           ease: "power2.out",
-        },
+        }
       );
 
       // Create unique ID for this ScrollTrigger
